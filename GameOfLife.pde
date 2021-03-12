@@ -231,7 +231,7 @@ class GameBoard {
   
   public void start_update() {
     subject_board = this;
-    thread("global_update");
+    start_thread(global_update);
   }
 }
 
