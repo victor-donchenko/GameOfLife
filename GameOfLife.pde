@@ -12,12 +12,10 @@ class Coords2d {
     col = other.col;
   }
   
-  @Override
   public int hashCode() {
     return row ^ (col << 1);
   }
   
-  @Override
   public boolean equals(Object other) {
     Coords2d coords_other = (Coords2d)other;
     if (coords_other == null) {
@@ -267,7 +265,7 @@ void setup() {
   cell_height = 10;
   last_update_time = millis();
   paused = true;
-  font = createFont("Helvetica", 10);
+  font = createFont("Courier", 10);
 }
 
 float convert_row_to_y(int row) {
