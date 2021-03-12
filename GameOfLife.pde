@@ -71,6 +71,18 @@ class CellBuffer {
   }
 }
 
+class GameBoardUpdateThread extends Thread {
+  private GameBoard board;
+  
+  GameBoardUpdateThread(GameBoard i_board) {
+    board = i_board;
+  }
+  
+  void run() {
+    board.update();
+  }
+};
+
 class GameBoard {
   private CellBuffer cells;
   private Mutex cells_mutex;
@@ -230,15 +242,9 @@ class GameBoard {
   }
   
   public void start_update() {
-    subject_board = this;
-    thread("global_update");
+    GameBoardUpdateThread thread = new GameBoardUpdateThread(this);
+    thread.start();
   }
-}
-
-GameBoard subject_board;
-
-void global_update() {
-  subject_board.update();
 }
 
 int board_width = 500;
