@@ -256,6 +256,8 @@ float millis_per_update = 100;
 boolean paused;
 float zoom_scale = 1.1;
 
+PFont font;
+
 void setup() {
   size(500, 500);
   board = new GameBoard(board_width, board_height);
@@ -265,6 +267,7 @@ void setup() {
   cell_height = 10;
   last_update_time = millis();
   paused = true;
+  font = createFont("Helvetica", 10);
 }
 
 float convert_row_to_y(int row) {
@@ -344,6 +347,8 @@ void draw() {
     }
   }
   cells_mutex.release();
+
+  textFont(font);
 
   String status_text;
   if (paused) {
