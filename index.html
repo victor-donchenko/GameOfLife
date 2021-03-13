@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<head>
 		<meta charset="utf-8">
-		<title>Title</title>
+		<title>Conway's Game of Life</title>
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="styles.css">
 		<script src="start_thread.js"></script>
@@ -9,14 +9,19 @@
 	</head>
 	<body>
 		<header>
-			<h1>Header</h1>
+			<h1>Conway's Game of Life</h1>
 		</header>
 			<section id="content">
 				<canvas id="GameOfLife" data-processing-sources="GameOfLife.pde">
 				</canvas>
 		    </section>
 	    <footer>
-		    Footer
+		    Click -- toggle cell<br>
+		    Drag -- move screen<br>
+		    Space -- pause or unpause<br>
+		    Up/Down -- zoom in/zoom out<br>
+		    a/d -- speed up/slow down (changes milliseconds per update cap)<br>
+		    This is a Conway's Game of Life calculator. It uses a separate thread to do the grid updates to keep the grid update cap timings accurate, with synchronization to keep grid updates correct. It uses an optimized grid update algorithm to allow for quick updates when there are few on cells even with large grid sizes. 
 	    </footer>
 	</body>
 </html>
