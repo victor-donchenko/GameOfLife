@@ -265,7 +265,7 @@ void setup() {
   cell_height = 10;
   last_update_time = millis();
   paused = true;
-  font = createFont("Courier", 10);
+  font = createFont("Helvetica", 10);
 }
 
 float convert_row_to_y(int row) {
